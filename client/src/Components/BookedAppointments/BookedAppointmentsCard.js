@@ -4,13 +4,13 @@ export const BookedAppointmentsCard = ({data}) => {
 
 
     return (
-        <div className="my-4 mx-10 p-5 min-h-max grid grid-cols-1 justify-center items-center rounded-lg bg-white">
+        <div className="my-4 shadow-lg mx-10 p-5 min-h-max grid grid-cols-1 justify-center items-center rounded-lg bg-white">
 
 
 
 
 
-        <div className="mb-4">
+        <div className="mb-4 ">
             <TableContainer className="" >
                 <Table aria-label="simple table">
                     <TableBody >
@@ -42,7 +42,12 @@ export const BookedAppointmentsCard = ({data}) => {
                             <TableCell> <b>  Appointment Date </b></TableCell>
                             <TableCell>{data.date}</TableCell>
                         </TableRow>
+                        
                         <TableRow>
+                            <TableCell> <b>  Timing </b></TableCell>
+                            <TableCell>{data.startTime} - {data.endTime}</TableCell>
+                        </TableRow>
+                                                <TableRow>
                             <TableCell> <b>  Amount Paid</b></TableCell>
                             <TableCell>{data.fees}</TableCell>
                         </TableRow>

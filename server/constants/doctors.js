@@ -1,402 +1,93 @@
-const dummyData = [{
-    name: 'Dr. Rajesh Kumar',
-    age: '40',
-    location: 'Pune',
-    category: 'Physicians',
-    education: 'Government Medical College Pune',
-    phoneNumber: '1234567890',
-    experience: '15',
-},
-{
-    name: 'Dr. Priya Sharma',
-    age: '35',
-    location: 'Pune',
-    category: 'Surgeons',
-    education: 'Government Dental College Mumbai',
-    phoneNumber: '9876543210',
-    experience: '10',
-},
-{
-    name: 'Dr. Aryan Patel',
-    age: '45',
-    location: 'Pune',
-    category: 'Dentists',
-    education: 'Government Medical College Hyderabad',
-    phoneNumber: '8765432109',
-    experience: '20',
-},
-{
-    name: 'Dr. Nandini Gupta',
-    age: '38',
-    location: 'Pune',
-    category: 'Pediatricians',
-    education: 'All India Institute of Medical Sciences (AIIMS) Delhi',
-    phoneNumber: '7654321098',
-    experience: '12',
-},
-{
-    name: 'Dr. Anand Verma',
-    age: '42',
-    location: 'Pune',
-    category: 'Cardiologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '6543210987',
-    experience: '18',
-},
-{
-    name: 'Dr. Priyanka Reddy',
-    age: '37',
-    location: 'Pune',
-    category: 'Orthopedic Surgeons',
-    education: 'AIIMS Bangalore',
-    phoneNumber: '8765432109',
-    experience: '15',
-},
-{
-    name: 'Dr. Mohan Singh',
-    age: '44',
-    location: 'Pune',
-    category: 'Gynecologists',
-    education: 'Government Medical College Rajasthan',
-    phoneNumber: '7654321098',
-    experience: '17',
-},
-{
-    name: 'Dr. Sanya Kapoor',
-    age: '39',
-    location: 'Pune',
-    category: 'Ophthalmologists',
-    education: 'Government Medical College Kashmir',
-    phoneNumber: '9876543210',
-    experience: '14',
-},
-{
-    name: 'Dr. Sameer Joshi',
-    age: '41',
-    location: 'Pune',
-    category: 'Dermatologists',
-    education: 'AIIMS Leh',
-    phoneNumber: '1234567890',
-    experience: '16',
-},
+const locations = [
+  { label: 'Pune' },
+  { label: 'Mumbai' },
+  { label: 'Jammu' },
+  { label: 'Delhi' },
+  { label: 'Hyderabad' },
+  { label: 'Bangalore' },
+  { label: 'Rajasthan' },
+  { label: 'Kashmir' },
+  { label: 'Leh' },
+];
 
-{
-    name: 'Dr. Rajesh Kumar',
-    age: '40',
-    location: 'Pune',
-    category: 'Cardiologists',
-    education: 'Government Medical College Pune',
-    phoneNumber: '1234567890',
-    experience: '15',
-  },
-  {
-    name: 'Dr. Priya Sharma',
-    age: '35',
-    location: 'Mumbai',
-    category: 'Dentists',
-    education: 'Government Dental College Mumbai',
-    phoneNumber: '9876543210',
-    experience: '10',
-  },
-  {
-    name: 'Dr. Aryan Patel',
-    age: '45',
-    location: 'Hyderabad',
-    category: 'Orthopedic Surgeons',
-    education: 'Government Medical College Hyderabad',
-    phoneNumber: '8765432109',
-    experience: '20',
-  },
-  {
-    name: 'Dr. Nandini Gupta',
-    age: '38',
-    location: 'Delhi',
-    category: 'Gynecologists',
-    education: 'All India Institute of Medical Sciences (AIIMS) Delhi',
-    phoneNumber: '7654321098',
-    experience: '12',
-  },
-  {
-    name: 'Dr. Anand Verma',
-    age: '42',
-    location: 'Jammu',
-    category: 'Neurologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '6543210987',
-    experience: '18',
-  },
-  {
-    name: 'Dr. Priyanka Reddy',
-    age: '37',
-    location: 'Mumbai',
-    category: 'Ophthalmologists',
-    education: 'AIIMS Bangalore',
-    phoneNumber: '8765432109',
-    experience: '15',
-  },
-  {
-    name: 'Dr. Mohan Singh',
-    age: '44',
-    location: 'Mumbai',
-    category: 'Urologists',
-    education: 'Government Medical College Rajasthan',
-    phoneNumber: '7654321098',
-    experience: '17',
-  },
-  {
-    name: 'Dr. Sanya Kapoor',
-    age: '39',
-    location: 'Mumbai',
-    category: 'Psychiatrists',
-    education: 'Government Medical College Kashmir',
-    phoneNumber: '9876543210',
-    experience: '14',
-  },
-  {
-    name: 'Dr. Sameer Joshi',
-    age: '41',
-    location: 'Mumbai',
-    category: 'Endocrinologists',
-    education: 'AIIMS Leh',
-    phoneNumber: '1234567890',
-    experience: '16',
-  },
+const categories = [
+  'Physicians',
+  'Surgeons',
+  'Dentists',
+  'Pediatricians',
+  'Cardiologists',
+  'Orthopedic Surgeons',
+  'Gynecologists',
+  'Ophthalmologists',
+  'Dermatologists',
+  'Neurologists',
+  'Psychiatrists',
+  'Oncologists',
+  'Radiologists',
+  'Urologists',
+  'Endocrinologists',
+  'Gastroenterologists',
+  // Add more categories as needed
+];
 
-  {
-    name: 'Dr. Akshay Gupta',
-    age: '40',
-    location: 'Jammu',
-    category: 'Cardiologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '1234567890',
-    experience: '15',
-  },
-  {
-    name: 'Dr. Ananya Sharma',
-    age: '35',
-    location: 'Jammu',
-    category: 'Dentists',
-    education: 'Government Dental College Jammu',
-    phoneNumber: '9876543210',
-    experience: '10',
-  },
-  {
-    name: 'Dr. Arjun Singh',
-    age: '45',
-    location: 'Jammu',
-    category: 'Orthopedic Surgeons',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '8765432109',
-    experience: '20',
-  },
-  {
-    name: 'Dr. Aisha Khan',
-    age: '38',
-    location: 'Jammu',
-    category: 'Gynecologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '7654321098',
-    experience: '12',
-  },
-  {
-    name: 'Dr. Aditya Verma',
-    age: '42',
-    location: 'Jammu',
-    category: 'Neurologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '6543210987',
-    experience: '18',
-  },
-  {
-    name: 'Dr. Anjali Gupta',
-    age: '37',
-    location: 'Jammu',
-    category: 'Ophthalmologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '8765432109',
-    experience: '15',
-  },
-  {
-    name: 'Dr. Amit Kumar',
-    age: '44',
-    location: 'Jammu',
-    category: 'Urologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '7654321098',
-    experience: '17',
-  },
-  {
-    name: 'Dr. Alia Ahmed',
-    age: '39',
-    location: 'Jammu',
-    category: 'Psychiatrists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '9876543210',
-    experience: '14',
-  },
-  {
-    name: 'Dr. Ankit Joshi',
-    age: '41',
-    location: 'Jammu',
-    category: 'Endocrinologists',
-    education: 'Government Medical College Jammu',
-    phoneNumber: '1234567890',
-    experience: '16',
-  },
+const indianNames = [
+  'Arjun', 'Aryan', 'Aditya', 'Akshay', 'Ananya', 'Anjali', 'Aisha', 'Aditi', 'Amit', 'Alia', 'Ashok', 'Bhavya', 'Chetan',
+  'Divya', 'Deepak', 'Esha', 'Gaurav', 'Gita', 'Harsh', 'Hina', 'Ishaan', 'Ishita', 'Jatin', 'Juhi', 'Kartik', 'Kavita', 'Lalit',
+  'Lavanya', 'Mohan', 'Megha', 'Neha', 'Nitin', 'Nidhi', 'Om', 'Pooja', 'Pranav', 'Priya', 'Rahul', 'Ritu', 'Rohit', 'Riya', 'Sachin',
+  'Sakshi', 'Sanjay', 'Shreya', 'Suresh', 'Shivani', 'Tanvi', 'Tarun', 'Urvashi', 'Varun', 'Vidya', 'Vivek', 'Yash', 'Yamini', 'Zoya'
+];
 
-  {
-    name: 'Dr. Ananya Sharma',
-    age: '35',
-    location: 'Delhi',
-    category: 'Physicians',
-    education: 'All India Institute of Medical Sciences (AIIMS) Delhi',
-    phoneNumber: '9876543210',
-    experience: '10',
-  },
-  {
-    name: 'Dr. Rohan Kapoor',
-    age: '40',
-    location: 'Delhi',
-    category: 'Surgeons',
-    education: 'AIIMS Delhi',
-    phoneNumber: '8765432109',
-    experience: '15',
-  },
-  {
-    name: 'Dr. Priya Singh',
-    age: '38',
-    location: 'Delhi',
-    category: 'Dentists',
-    education: 'Government Dental College Delhi',
-    phoneNumber: '7654321098',
-    experience: '12',
-  },
-  {
-    name: 'Dr. Arjun Verma',
-    age: '45',
-    location: 'Delhi',
-    category: 'Pediatricians',
-    education: 'AIIMS Delhi',
-    phoneNumber: '6543210987',
-    experience: '18',
-  },
-  {
-    name: 'Dr. Neha Gupta',
-    age: '42',
-    location: 'Delhi',
-    category: 'Cardiologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '8765432109',
-    experience: '20',
-  },
-  {
-    name: 'Dr. Rahul Sharma',
-    age: '37',
-    location: 'Delhi',
-    category: 'Orthopedic Surgeons',
-    education: 'AIIMS Delhi',
-    phoneNumber: '7654321098',
-    experience: '15',
-  },
-  {
-    name: 'Dr. Simran Malhotra',
-    age: '39',
-    location: 'Delhi',
-    category: 'Gynecologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '9876543210',
-    experience: '14',
-  },
-  {
-    name: 'Dr. Arnav Kumar',
-    age: '41',
-    location: 'Delhi',
-    category: 'Ophthalmologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '1234567890',
-    experience: '16',
-  },
-  {
-    name: 'Dr. Natasha Gupta',
-    age: '36',
-    location: 'Delhi',
-    category: 'Dermatologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '9876543210',
-    experience: '11',
-  },
-  {
-    name: 'Dr. Aditya Singh',
-    age: '43',
-    location: 'Delhi',
-    category: 'Neurologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '8765432109',
-    experience: '19',
-  },
-  {
-    name: 'Dr. Aisha Ahmed',
-    age: '34',
-    location: 'Delhi',
-    category: 'Psychiatrists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '7654321098',
-    experience: '9',
-  },
-  {
-    name: 'Dr. Karan Kapoor',
-    age: '44',
-    location: 'Delhi',
-    category: 'Oncologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '6543210987',
-    experience: '21',
-  },
-  {
-    name: 'Dr. Ritu Verma',
-    age: '33',
-    location: 'Delhi',
-    category: 'Radiologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '8765432109',
-    experience: '8',
-  },
-  {
-    name: 'Dr. Vikas Yadav',
-    age: '46',
-    location: 'Delhi',
-    category: 'Urologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '7654321098',
-    experience: '22',
-  },
-  {
-    name: 'Dr. Anjali Sharma',
-    age: '37',
-    location: 'Delhi',
-    category: 'Endocrinologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '9876543210',
-    experience: '13',
-  },
-  {
-    name: 'Dr. Arjun Malhotra',
-    age: '39',
-    location: 'Delhi',
-    category: 'Gastroenterologists',
-    education: 'AIIMS Delhi',
-    phoneNumber: '8765432109',
-    experience: '15',
-  },
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-]
+const combinedData = [];
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+for (const location of locations) {
+  for (const category of categories) {
+    for (let i = 1; i <= 10; i++) {
+      const name = `Dr. ${indianNames[getRandomInt(0, indianNames.length - 1)]} ${i} - ${location.label}`;
+      const email = `dummy${combinedData.length + 1}@example.com`;
+      const phoneNumber = `+91 ${getRandomInt(7000000000, 9999999999)}`;
+
+      const startTime = getRandomInt(9, 12);
+      const endTime = getRandomInt(15, 18);
+      const timePerPatient = getRandomInt(10, 30);
+      const timingForPatient = getRandomInt(10, 30); // Added timingForPatient property
+
+      const availableSlots = calculateAvailableSlots(startTime, endTime, timingForPatient);
+
+      combinedData.push({
+        name,
+        email,
+        password: 'DummyPassword123',
+        age: (getRandomInt(30, 40)).toString(),
+        hospitalAddress: `Dummy Hospital ${i} - ${location.label}`,
+        category,
+        location: location.label,
+        education: `Dummy Medical College ${i} - ${location.label}`,
+        experience: ((getRandomInt(5, 10)) * 2).toString(),
+        phoneNumber,
+        fees: (getRandomInt(500, 1000)).toString(),
+        startTime,
+        endTime,
+        timePerPatient,
+        timingForPatient, // Added timingForPatient property
+        availableSlots,
+      });
+    }
+  }
 }
 
+function calculateAvailableSlots(startTime, endTime, timingForPatient) {
+  const slots = [];
+  let currentTime = new Date(`2023-01-01T${startTime}:00:00`);
 
+  while (currentTime < new Date(`2023-01-01T${endTime}:00:00`)) {
+    const formattedTime = currentTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    slots.push(formattedTime);
+    currentTime = new Date(currentTime.getTime() + timingForPatient * 60000);
+  }
 
+  return slots;
+}
 
-module.exports = dummyData;
-
+module.exports = combinedData;

@@ -2,7 +2,8 @@
 const mongoose = require("mongoose");
 const appointment = require("../models/appointments")
 const apiSecret = process.env.RAZOR_PAY_API_SECRET
-const crypto = require('crypto')
+const crypto = require('crypto');
+const Doctor = require("../models/doctorModel");
 
 
 const bookAppointmentController = async (req, res) => {
@@ -34,6 +35,11 @@ const bookAppointmentController = async (req, res) => {
    if (digest == razorpay_signature) {
       try {
          const fetchedData = await appointment.findOne({ date: data.date, doctorName: data.doctor });
+         const fetchedDoctor = await Doctor.findOne({name:data.doctor,phoneNumber:data.docPhone})
+
+         const slots = fetchedDoctor.availableSlots;
+        
+         const totalNumberOfSlots = slots.length;
 
          if (!fetchedData) {
             const appointmentData = {
@@ -48,10 +54,12 @@ const bookAppointmentController = async (req, res) => {
                   age: data.age,
                   gender: data.gender,
                   slot: 1,
+                  startTime :  slots[0].start,
+                  endTime :  slots[0].end,
                }],
-               availableSlots: 5 - 1,
+               availableSlots: totalNumberOfSlots - 1,
                fees:data.fees
-               // assume 10 is from DB
+             
 
 
             }
@@ -66,6 +74,11 @@ const bookAppointmentController = async (req, res) => {
          else {
 
             const fetchData = await appointment.findOne({ date: data.date, doctorName: data.doctor });
+            const fetchedDoctor = await Doctor.findOne({name:data.doctor,phoneNumber:data.docPhone})
+
+            const slots = fetchedDoctor.availableSlots;
+            const totalNumberOfSlots = slots.length;
+           
             if (fetchData.availableSlots == 0) {
                res.status(501).json({ msg: `No Slots Available for Date: ${data.date}` })
             } else {
@@ -83,6 +96,8 @@ const bookAppointmentController = async (req, res) => {
                   age: data.age,
                   gender: data.gender,
                   slot: 5 - (fetchData.availableSlots - 1),
+                  startTime :  slots[5 - (fetchData.availableSlots - 1)-2].start,
+                  endTime :  slots[5 - (fetchData.availableSlots - 1)-2].end,
 
                })
 

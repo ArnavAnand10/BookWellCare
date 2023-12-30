@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
 const pages = ['Find Doctor', 'Appointments', 'My Reports'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [ 'Logout'];
 
 function Header() {
 

@@ -15,6 +15,7 @@ const doctorSchema = mongoose.Schema({
     startTime:String,
     endTime:String,
     timingForPatient: Number,
+    availableSlots :[],
 })
 
 const Doctor = new mongoose.model("doctor", doctorSchema);

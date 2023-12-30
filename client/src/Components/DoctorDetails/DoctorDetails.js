@@ -336,8 +336,8 @@ export const DoctorDetailsPage = () => {
                     <Avatar className="mt-4" sx={{
                         width: 65, height: 65,
                         bgcolor: "#A0C2EF"
-                    }}><h1 className="text-5xl ">{  }</h1></Avatar>
-                    <h1 className="mb-8 mt-4 text-xl font-medium md:text-2xl">{data&&data.name}</h1>
+                    }}><h1 className="text-5xl ">{data&&data.name[4]  }</h1></Avatar>
+                    <h1 className="mb-8 mt-4 text-xl font-medium md:text-2xl">{}</h1>
                 </div>
 
 
